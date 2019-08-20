@@ -41,3 +41,95 @@ mixins can even accept arguments with the option to set default values.  Here is
     @include square(300px, rgb(255, 0, 0))
 }
 
+/* Another efficient way to use mixins is when a property requires prefixes to work in all browsers. */
+
+@mixin transform-tilt() {
+    $tilt: rotate(15deg);
+
+    -webkit-transform: $tilt; /* chrome, Safari, ios, android */
+    -ms-transform: $tilt; /* the dreaded IE 9 */
+    transform: $tilt; /* IE 10, FF, Opera */
+}
+
+.frame:hover {
+    @include transform-tilt()
+}
+
+/* EXTEND
+Extend allows the CSS properties of one selector to be inherited by another.  This works similarly to mixins, but is preferred when we want to create a logical connection between the elements on a page.
+
+Extending should be used when we need similarly styled elements which  differ in some detail.  For example, two dialog buttons: one for agreeing and one for cancelling.
+*/
+
+.dialog-button {
+    box-sizing: border-box;
+    color: #fff;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    padding: 12px 40px;
+    cursor: pointer;
+}
+
+.confirm {
+    @extend .dialog-button;
+    background-color: #87bae1;
+    float: left;
+}
+
+.cancel {
+    @extend .dialog-button;
+    background-color: #d1afad;
+    float: right;
+}
+
+/* NESTING
+With sass nesting you can organize your stylesheet in a way that resembles HTML more directly, reducing the chance of CSS conflicts.
+
+Styling a list containing a number of links: */
+
+ul {
+    list-style: none;
+
+    li {
+        padding: 15px;
+        display: inline-block;
+
+        a {
+            text-decoration: none;
+            font-size: 16px;
+            color: #444;
+        }
+    }
+}
+
+/* OPERATIONS
+With Sass you can do basic math in the stylesheet.  CSS offers this in the form of calc(), but Sass math is quicker to write, includes modulo, and can be applied to a wider range of data-types. */
+
+$width: 800px;
+
+.container {
+    width: $width;
+}
+
+.column-half {
+    width: $width / 2;
+}
+
+.column-fifth {
+    width: $width / 5;
+}
+
+/* FUNCTIONS
+Sass offers a long list of built-in functions.  They serve all kinds of purposes including string manipulation, color related operations, and some handy math such as random() and round().
+
+Here is a quick snipped that makes an on-hover effect: */
+
+$awesome-blue: #2196F3;
+
+a {
+    padding: 10px 15px;
+    background-color: $awesome-blue;
+}
+
+a:hover {
+    background-color: darken($awesome-blue, 10%);
+}

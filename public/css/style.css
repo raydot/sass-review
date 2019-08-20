@@ -28,4 +28,83 @@ mixins can even accept arguments with the option to set default values.  Here is
   background-color: red;
 }
 
+/* Another efficient way to use mixins is when a property requires prefixes to work in all browsers. */
+.frame:hover {
+  -webkit-transform: rotate(15deg);
+  /* chrome, Safari, ios, android */
+  -ms-transform: rotate(15deg);
+  /* the dreaded IE 9 */
+  transform: rotate(15deg);
+  /* IE 10, FF, Opera */
+}
+
+/* EXTEND
+Extend allows the CSS properties of one selector to be inherited by another.  This works similarly to mixins, but is preferred when we want to create a logical connection between the elements on a page.
+
+Extending should be used when we need similarly styled elements which  differ in some detail.  For example, two dialog buttons: one for agreeing and one for cancelling.
+*/
+.dialog-button, .cancel, .confirm {
+  box-sizing: border-box;
+  color: #fff;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+  padding: 12px 40px;
+  cursor: pointer;
+}
+
+.confirm {
+  background-color: #87bae1;
+  float: left;
+}
+
+.cancel {
+  background-color: #d1afad;
+  float: right;
+}
+
+/* NESTING
+With sass nesting you can organize your stylesheet in a way that resembles HTML more directly, reducing the chance of CSS conflicts.
+
+Styling a list containing a number of links: */
+ul {
+  list-style: none;
+}
+ul li {
+  padding: 15px;
+  display: inline-block;
+}
+ul li a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #444;
+}
+
+/* OPERATIONS
+With Sass you can do basic math in the stylesheet.  CSS offers this in the form of calc(), but Sass math is quicker to write, includes modulo, and can be applied to a wider range of data-types. */
+.container {
+  width: 800px;
+}
+
+.column-half {
+  width: 400px;
+}
+
+.column-fifth {
+  width: 160px;
+}
+
+/* FUNCTIONS
+Sass offers a long list of built-in functions.  They serve all kinds of purposes including string manipulation, color related operations, and some handy math such as random() and round().
+
+A list of functions is available at https://sass-lang.com/documentation/functions
+
+Here is a quick snippet that makes an on-hover effect: */
+a {
+  padding: 10px 15px;
+  background-color: #2196F3;
+}
+
+a:hover {
+  background-color: #0c7cd5;
+}
+
 /*# sourceMappingURL=style.css.map */
