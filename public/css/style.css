@@ -1,0 +1,31 @@
+/*  VARIABLES
+Variables on Sass work in a similar fashion to those in any other language, including data types and scope.  */
+h1.title {
+  font: normal 24px/1.5 "Open Sans", sans-serif;
+  color: #F44336;
+}
+
+div.container {
+  color: #F44336;
+  background: #fff;
+  width: 100%;
+  box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* MIXINS
+Think of mixins as a simplified version of constructor classes.  You can grab a whole group of CSS declarations and re-use it whenever you want to give and element a specific set of styles.
+
+mixins can even accept arguments with the option to set default values.  Here is a square mixin, used to create squares of varying sizes and colors.*/
+.small-blue-square {
+  width: 20px;
+  height: 20px;
+  background-color: blue;
+}
+
+.big-red-square {
+  width: 300px;
+  height: 300px;
+  background-color: red;
+}
+
+/*# sourceMappingURL=style.css.map */

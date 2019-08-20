@@ -1,0 +1,43 @@
+@import '_colors';
+@import '_layout';
+@import '_forms';
+
+
+/*  VARIABLES
+Variables on Sass work in a similar fashion to those in any other language, including data types and scope.  */
+
+$title-font: normal 24px/1.5 'Open Sans', sans-serif;
+$cool-red: #F44336;
+$box-shadow-bottom-only: 0 2px 1px 0 rgba(0, 0, 0, 0.2);
+
+h1.title {
+    font: $title-font;
+    color: $cool-red;
+}
+
+div.container {
+    color: $cool-red;
+    background: #fff;
+    width: 100%;
+    box-shadow: $box-shadow-bottom-only;
+}
+
+/* MIXINS
+Think of mixins as a simplified version of constructor classes.  You can grab a whole group of CSS declarations and re-use it whenever you want to give and element a specific set of styles.
+
+mixins can even accept arguments with the option to set default values.  Here is a square mixin, used to create squares of varying sizes and colors.*/
+
+@mixin square($size, $color) {
+    width: $size;
+    height: $size;
+    background-color: $color;
+}
+
+.small-blue-square {
+    @include square(20px, rgb(0,0,255));
+}
+
+.big-red-square {
+    @include square(300px, rgb(255, 0, 0))
+}
+
